@@ -12,8 +12,9 @@ import BusinessLoan from './pages/BusinessLoan/BusinessLoan';
 import HealthInsurance from './pages/HealthInsurance/HealthInsurance';
 import LifeInsurance from './pages/LifeInsurance/LifeInsurance';
 import HomeLoan from './pages/HomeLoan/HomeLoan';
+import HLBankingPartners from './pages/HomeLoan/HLBankingPartners';
+import HLNBFCPartners from './pages/HomeLoan/HLNBFCPartners';
 import GoldLoan from './pages/GoldLoan/GoldLoan';
-import HomeLoanBalanceTransfer from './pages/HomeLoanBalanceTransfer/HomeLoanBalanceTransfer';
 import LoanAgainstProperty from './pages/LoanAgainstProperty/LoanAgainstProperty';
 import AboutUs from './pages/AboutUs/AboutUs';
 import Insurance from './pages/Insurance/Insurance';
@@ -94,7 +95,8 @@ const App: React.FC = () => {
             
             {/* Other Routes */}
             <Route path="/home-loan" element={<HomeLoan />} />
-            <Route path="/home-loan-balance-transfer" element={<HomeLoanBalanceTransfer />} />
+            <Route path="/home-loan/banking-partners" element={<HLBankingPartners />} />
+            <Route path="/home-loan/nbfc-partners" element={<HLNBFCPartners />} />
             <Route path="/gold-loan" element={<GoldLoan />} />
             <Route path="/insurance" element={<Insurance />} />
             <Route path="/health-insurance" element={<HealthInsurance />} />

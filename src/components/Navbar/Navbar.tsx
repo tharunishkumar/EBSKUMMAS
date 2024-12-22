@@ -255,6 +255,16 @@ const Navbar: React.FC = () => {
         label: <Link to="/loan-against-property/fintech-partners">Fintech Partners</Link>,
       },
     ],
+    homeLoan: [
+      {
+        key: 'home-loan-banking',
+        label: <Link to="/home-loan/banking-partners">Banking Partners</Link>,
+      },
+      {
+        key: 'home-loan-nbfc',
+        label: <Link to="/home-loan/nbfc-partners">Non-Banking Financial Company Partners</Link>,
+      },
+    ],
   };
 
   const loansDropdownMenu = (
@@ -274,12 +284,11 @@ const Navbar: React.FC = () => {
           <Menu.Item key={item.key}>{item.label}</Menu.Item>
         ))}
       </Menu.SubMenu>
-      <Menu.Item key="home-loan">
-        <Link to="/home-loan">Home Loan</Link>
-      </Menu.Item>
-      <Menu.Item key="home-loan-balance-transfer">
-        <Link to="/home-loan-balance-transfer">Home Loan Balance Transfer</Link>
-      </Menu.Item>
+      <Menu.SubMenu key="home-loan" title="Home Loan">
+        {loansMenu.homeLoan.map(item => (
+          <Menu.Item key={item.key}>{item.label}</Menu.Item>
+        ))}
+      </Menu.SubMenu>
       <Menu.Item key="gold-loan">
         <Link to="/gold-loan">Gold Loan</Link>
       </Menu.Item>
