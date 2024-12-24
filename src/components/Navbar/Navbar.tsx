@@ -140,19 +140,19 @@ const LoginButton = styled(Button)`
 `;
 
 const DropdownMenu = styled(Menu)`
-  min-width: 300px;
-  padding: 8px;
-  border-radius: 12px;
+  min-width: fit-content;
+  padding: 4px;
+  border-radius: 8px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
   border: 1px solid #eee;
 
   .ant-dropdown-menu-item {
-    padding: 8px 16px;
+    padding: 8px 12px;
     border-radius: 6px;
   }
 
   .ant-menu-submenu-title {
-    padding: 8px 16px;
+    padding: 8px 12px;
     font-weight: 500;
   }
 
@@ -164,13 +164,22 @@ const DropdownMenu = styled(Menu)`
   }
 
   .ant-menu-item {
-    margin: 4px 0;
-    padding: 8px 16px;
+    margin: 2px 0;
+    padding: 8px 12px;
     border-radius: 6px;
     white-space: nowrap;
 
     &:hover {
       background: #e9ecef;
+    }
+
+    a {
+      color: #333;
+      text-decoration: none;
+      
+      &:hover {
+        color: #000;
+      }
     }
   }
 `;
@@ -311,6 +320,9 @@ const Navbar: React.FC = () => {
       <Menu.Item key="life">
         <Link to="/life-insurance">Life Insurance</Link>
       </Menu.Item>
+      <Menu.Item key="general">
+        <Link to="/general-insurance">General Insurance</Link>
+      </Menu.Item>
     </DropdownMenu>
   );
 
@@ -330,17 +342,17 @@ const Navbar: React.FC = () => {
           <NavLink to="/" onClick={handleHomeClick} $active={location.pathname === '/'}>
             Home
           </NavLink>
-          <Dropdown overlay={<Menu items={cardItems} />} placement="bottom">
+          <Dropdown overlay={<DropdownMenu items={cardItems} />} trigger={['hover']} placement="bottom">
             <NavLink to="/credit-cards" $active={location.pathname.includes('credit-cards')}>
               Cards <DownOutlined style={{ fontSize: 8 }} />
             </NavLink>
           </Dropdown>
-          <Dropdown overlay={loansDropdownMenu} trigger={['hover']}>
+          <Dropdown overlay={loansDropdownMenu} trigger={['hover']} placement="bottom">
             <NavLink to="/loans" $active={location.pathname.includes('loan')}>
               Loans <DownOutlined style={{ fontSize: 8 }} />
             </NavLink>
           </Dropdown>
-          <Dropdown overlay={insuranceMenu} trigger={['hover']}>
+          <Dropdown overlay={insuranceMenu} trigger={['hover']} placement="bottom">
             <NavLink to="/insurance" $active={location.pathname.includes('insurance')}>
               Insurance <DownOutlined style={{ fontSize: 8 }} />
             </NavLink>

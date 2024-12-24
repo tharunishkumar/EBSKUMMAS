@@ -2299,15 +2299,14 @@ const BLNBFCPartners: React.FC = () => {
       {renderHeroSection()}
       <Container>
         <CardsSection>
-          <b></b>
-          <b></b>
+        
           <b></b>
           <b></b>
           <SectionTitle>
             Business Loans - Non-Financial Banking Company Partners
           </SectionTitle>
           <b></b>
-          <b></b>
+    
 
           {personalLoans.map((loan: Loan) => (
             <motion.div

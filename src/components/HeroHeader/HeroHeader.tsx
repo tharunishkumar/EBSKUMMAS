@@ -65,6 +65,19 @@ const Tagline = styled.p`
   }
 `;
 
+const Description = styled.p`
+  font-size: 1.1rem;
+  color: #ffffff;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards 0.3s;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+`;
+
 const StatsContainer = styled.div`
   display: flex;
   gap: 30px;
@@ -165,31 +178,38 @@ const AnimatedNumber = ({ end, duration = 1500 }: { end: number; duration?: numb
   return <div ref={ref}>{displayValue}</div>;
 };
 
-const HeroHeader: React.FC = () => {
+interface HeroHeaderProps {
+  title: string;
+  subtitle: string;
+  description: string;
+}
+
+const HeroHeader: React.FC<HeroHeaderProps> = ({ title, subtitle, description }) => {
   return (
     <HeroContainer>
       <Content>
-        <Title>Everyday Banking Solutions</Title>
-        <Tagline>Your Trustworthy Banking Partner</Tagline>
+        <Title>{title}</Title>
+        <Tagline>{subtitle}</Tagline>
+        <Description>{description}</Description>
       </Content>
       <StatsContainer>
         <StatCard style={{ animationDelay: '0.2s' }}>
           <StatValue>
-            <AnimatedNumber end={1} />
+            <AnimatedNumber end={500} />K+
           </StatValue>
-          <StatLabel>Loans Offered</StatLabel>
+          <StatLabel>Happy Customers</StatLabel>
         </StatCard>
         <StatCard style={{ animationDelay: '0.4s' }}>
           <StatValue>
-            <AnimatedNumber end={1} />
+            <AnimatedNumber end={95} />%
           </StatValue>
-          <StatLabel>Loans Offered</StatLabel>
+          <StatLabel>Claim Settlement</StatLabel>
         </StatCard>
         <StatCard style={{ animationDelay: '0.6s' }}>
-          <StatValue>
-            <AnimatedNumber end={1} />
+          <StatValue>₹
+            <AnimatedNumber end={50} />L
           </StatValue>
-          <StatLabel>Loans Offered</StatLabel>
+          <StatLabel>Max Coverage</StatLabel>
         </StatCard>
       </StatsContainer>
     </HeroContainer>
